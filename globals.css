@@ -1,95 +1,28 @@
-/* Reset and global styles */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Import a clean professional font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 
 body {
-  font-family: "Segoe UI", Arial, sans-serif;
-  background: linear-gradient(135deg, #f5f7fa, #e4ebf1);
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(180deg, #ffffff 0%, #f3f6fa 100%);
   color: #1e293b;
-  line-height: 1.6;
+  margin: 0;
 }
 
-/* Hero Section */
-.hero {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background: radial-gradient(circle at center, #f9fafb 0%, #e2e8f0 100%);
-  text-align: center;
-  padding: 2rem;
-}
-
-/* Glowing Logo */
-.glow-logo {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: radial-gradient(circle, rgba(8,108,179,0.8) 0%, rgba(8,108,179,0.4) 70%, transparent 100%);
-  box-shadow: 0 0 20px rgba(8,108,179,0.7);
-  animation: pulse 4s ease-in-out infinite;
-}
-
+/* Subtle glow effect for the logo */
 .glow-logo img {
-  width: 70px;
-  height: 70px;
+  filter: drop-shadow(0 0 8px rgba(37, 99, 235, 0.5));
+  animation: glow 3s ease-in-out infinite alternate;
 }
 
-@keyframes pulse {
-  0%, 100% { box-shadow: 0 0 20px rgba(8,108,179,0.7); }
-  50% { box-shadow: 0 0 40px rgba(8,108,179,1); }
-}
-
-/* Headings */
-h1 {
-  font-size: 2.5rem;
-  color: #083b6b;
-  margin-top: 1rem;
-}
-
-h2 {
-  font-size: 1.8rem;
-  color: #084c83;
-  margin-top: 2rem;
-}
-
-/* Paragraphs */
-p {
-  font-size: 1.1rem;
-  color: #475569;
-  margin: 1rem 0;
-}
-
-/* Sections */
-section {
-  padding: 2rem;
-  max-width: 800px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-/* List Styles */
-ul {
-  list-style: none;
-  margin-top: 1rem;
-}
-
-ul li {
-  margin: 0.5rem 0;
-  font-size: 1.1rem;
-}
-
-/* Footer */
-footer {
-  text-align: center;
-  padding: 2rem;
-  font-size: 0.9rem;
-  color: #64748b;
+@keyframes glow {
+  from {
+    filter: drop-shadow(0 0 4px rgba(37, 99, 235, 0.3));
+  }
+  to {
+    filter: drop-shadow(0 0 12px rgba(37, 99, 235, 0.7));
+  }
 }
