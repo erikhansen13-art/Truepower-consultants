@@ -1,4 +1,4 @@
-import "../styles/globals.css";
+import '../styles/globals.css';
 import { Inter } from 'next/font/google';
 const inter = Inter({ subsets: ['latin'] });
 
@@ -12,14 +12,7 @@ export const metadata = {
     description: 'Helping businesses lower energy costs and manage risk through smarter procurement.',
     url: 'https://www.truepowerconsultants.com',
     siteName: 'TruePower Consultants',
-    images: [
-      {
-        url: '/og-image.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'TruePower Consultants'
-      }
-    ],
+    images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'TruePower Consultants' }],
     locale: 'en_US',
     type: 'website'
   },
@@ -27,17 +20,15 @@ export const metadata = {
     card: 'summary_large_image',
     title: 'TruePower Consultants',
     description: 'Helping businesses lower energy costs and manage risk through smarter procurement.',
-    images: ['/og-image.jpg'],
+    images: ['/og-image.jpg']
   },
-  icons: {
-    icon: '/favicon.ico',
-  }
+  icons: { icon: '/favicon.ico' }
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className + ' bg-gray-50 text-slate-900 antialiased'}>
+      <body className={inter.className + ' bg-white text-slate-900 antialiased'}>
         {children}
       </body>
     </html>
