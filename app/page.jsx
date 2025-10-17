@@ -7,48 +7,26 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-accent-100 text-slate-900 antialiased">
       {/* Header */}
-      <header className="bg-white/80 backdrop-blur-sm sticky top-0 z-40">
-        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-          {/* Logo + Title */}
-          <div className="flex items-center gap-4">
-            {/* Glowing circle with inline bolt */}
-            <div className="glow-pulse rounded-full bg-navy-700 p-3 shadow-lg flex items-center justify-center">
-              <svg
-                width="34"
-                height="34"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                aria-hidden="true"
-                className="block"
-              >
-                <path
-                  d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"
-                  fill="#fff"
-                />
-              </svg>
-            </div>
-
-            {/* Rendered company text */}
-            <div className="leading-tight">
-              <div className="text-2xl font-extrabold text-navy-900 tracking-tight">
-                TruePower
-              </div>
-              <div className="text-sm uppercase tracking-widest text-silver-600 -mt-1">
-                Consultants
-              </div>
-            </div>
-          </div>
-
-          {/* Navigation */}
-          <nav className="hidden md:flex gap-6 items-center text-sm text-slate-700">
-            <a href="#services" className="hover:text-navy-900 transition-colors">Services</a>
-            <a href="#about" className="hover:text-navy-900 transition-colors">About</a>
-            <a href="#contact" className="px-4 py-2 rounded-md bg-navy-700 text-white hover:bg-navy-800 transition-colors">Contact</a>
-          </nav>
-        </div>
-      </header>
-
+      <header className="flex items-center justify-between p-6 bg-white shadow-md">
+  <div className="flex items-center space-x-3">
+    <div className="relative w-12 h-12 flex items-center justify-center rounded-full bg-[radial-gradient(circle_at_center,#3b82f6,transparent_70%)]">
+      ⚡
+    </div>
+    <div>
+      <h1 className="text-2xl font-bold text-[#1f3b5b]">TruePower</h1>
+      <p className="text-sm font-medium text-[#1f3b5b]/80 tracking-wide">
+        CONSULTANTS
+      </p>
+    </div>
+  </div>
+  <nav className="space-x-6 text-[#1f3b5b] font-medium">
+    <a href="#services" className="hover:text-[#3b82f6] transition">Services</a>
+    <a href="#about" className="hover:text-[#3b82f6] transition">About</a>
+    <a href="#contact" className="px-4 py-2 bg-[#1f3b5b] text-white rounded-md hover:bg-[#3b82f6] transition">
+      Contact
+    </a>
+  </nav>
+</header>
       {/* Hero */}
       <section className="max-w-7xl mx-auto px-6 py-12">
         <div className="grid md:grid-cols-2 gap-10 items-center">
