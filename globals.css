@@ -1,62 +1,58 @@
-/* ✅ Keep Tailwind enabled */
+/* ===============================
+   TruePower Consultants - globals.css
+   Tailwind + custom styling
+   =============================== */
+
+/* Keep Tailwind enabled */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* globals.css - Tailwind + custom */
+/* Font import - clean professional sans-serif */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
 
-:root{
+/* ===============================
+   Color palette (navy / silver / white)
+   =============================== */
+:root {
   --navy-900: #0f1f3b;
   --navy-700: #1A2C56; /* primary */
   --accent-500: #3B82F6;
   --silver-600: #9CA3AF;
-  --accent-50: #f6fbff;
+  --silver-100: #f3f4f6;
+  --white: #ffffff;
 }
 
-/* Body & base */
-html{scroll-behavior:smooth;}
-body{
+/* ===============================
+   Base styles
+   =============================== */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
   @apply bg-white text-slate-900;
-  font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
-  color: #0f1724;
+  font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: var(--navy-900);
 }
 
-/* Utility color classes accessible from code */
-.text-navy-900 { color: var(--navy-900); }
-.bg-navy-700 { background-color: var(--navy-700); }
-.text-silver-600 { color: var(--silver-600); }
-.bg-accent-100 { background-color: var(--accent-50); }
+/* ===============================
+   Utility tweaks
+   =============================== */
 
-/* Glowing circle pulse */
-.glow-pulse {
-  box-shadow: 0 6px 24px rgba(26,44,86,0.12);
-  transition: box-shadow .35s ease, transform .25s ease;
-  animation: pulse 3.4s ease-in-out infinite;
+/* Glowing accent effect for logo or buttons */
+.glow {
+  text-shadow: 0 0 10px rgba(59, 130, 246, 0.5), 0 0 20px rgba(59, 130, 246, 0.3);
 }
 
-@keyframes pulse {
-  0% { box-shadow: 0 6px 24px rgba(26,44,86,0.12); transform: translateY(0); }
-  50% { box-shadow: 0 12px 40px rgba(59,130,246,0.12); transform: translateY(-2px); }
-  100% { box-shadow: 0 6px 24px rgba(26,44,86,0.12); transform: translateY(0); }
+/* Smooth hover transition for interactive elements */
+a, button {
+  @apply transition-all duration-300 ease-in-out;
 }
 
-/* Nice rounded cards */
-.card {
-  @apply rounded-xl bg-white shadow-sm;
-}
-
-/* Smaller helpers */
-.text-green-600 { color: #16a34a; }
-
-/* Make sure large headings don't overflow on mobile */
-h1, h2, h3 { word-break: keep-all; }
-
-/* Improve box style for the right hero image placeholder */
-.right-hero-card {
-  border-radius: .75rem;
-  background: linear-gradient(180deg,#fff,#f8fafc);
-  box-shadow: 0 10px 30px rgba(2,6,23,0.06);
+/* Consistent container width */
+.container {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
 }
