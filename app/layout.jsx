@@ -8,7 +8,15 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body><img src="/logo.png" alt="Truepower Consultants Logo" width="200" style={{ display: "b{children}</body>
+      <body>
+        <img
+          src="/logo.png"
+          alt="Truepower Consultants Logo"
+          width="200"
+          style={{ display: "block", margin: "40px auto" }}
+        />
+        {children}
+      </body>
     </html>
   );
 }
