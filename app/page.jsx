@@ -23,6 +23,8 @@ export default function Home() {
       </p>
     </div>
   </div>
+    
+<header>
   <nav className="space-x-6 text-[#1f3b5b] font-medium">
     <a href="#services" className="hover:text-[#3b82f6] transition">Services</a>
     <a href="#about" className="hover:text-[#3b82f6] transition">About</a>
