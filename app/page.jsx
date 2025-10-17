@@ -23,16 +23,14 @@ export default function Home() {
       </p>
     </div>
   </div>
-    
 <header>
-  <nav className="space-x-6 text-[#1f3b5b] font-medium">
+  <nav className="space-x-6 text-[#1f35b5b] font-medium">
     <a href="#services" className="hover:text-[#3b82f6] transition">Services</a>
     <a href="#about" className="hover:text-[#3b82f6] transition">About</a>
-    <a href="#contact" className="px-4 py-2 bg-[#1f3b5b] text-white rounded-md hover:bg-[#3b82f6] transition">
-      Contact
-    </a>
+    <a href="#contact" className="px-4 py-2 bg-[#1f35b5b] text-white rounded-md hover:bg-[#3b82f6] transition">Contact</a>
   </nav>
 </header>
+    
       {/* Hero */}
       <section className="max-w-7xl mx-auto px-6 py-12">
         <div className="grid md:grid-cols-2 gap-10 items-center">
