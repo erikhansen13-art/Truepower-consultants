@@ -1,14 +1,72 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root{
+:root {
   --brand: #0B3954;
-  --accent: #E5E7EB;
+  --accent: #0f1724;
+  --muted: #94a3b8;
+  --silver: #E5E7EB;
 }
-html{scroll-behavior:smooth;}
-body{background-color:var(--accent);}
 
-/* scrollbar */
-::-webkit-scrollbar{width:8px}
-::-webkit-scrollbar-thumb{background-color:rgba(100,116,139,0.4);border-radius:9999px}
+/* Animated gradient for hero */
+.hero-gradient {
+  background: linear-gradient(120deg, rgba(11,57,84,1) 0%, rgba(5,33,60,1) 50%, rgba(2,22,39,1) 100%);
+  position: relative;
+  overflow: hidden;
+}
+.hero-gradient::before {
+  content: '';
+  position: absolute;
+  inset: -50% -50% auto auto;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at 10% 20%, rgba(8,52,86,0.6), transparent 10%),
+              radial-gradient(circle at 80% 80%, rgba(3,30,52,0.6), transparent 10%);
+  animation: float 12s linear infinite;
+  opacity: 0.6;
+  mix-blend-mode: overlay;
+}
+@keyframes float {
+  0% { transform: translate(0,0) rotate(0deg); }
+  50% { transform: translate(-5%,5%) rotate(6deg); }
+  100% { transform: translate(0,0) rotate(0deg); }
+}
+
+html { scroll-behavior: smooth; }
+body { background: var(--accent); color: #fff; }
+
+/* watermark */
+.hero-watermark {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.06;
+  pointer-events: none;
+}
+.logo-watermark { max-width: 60%; filter: grayscale(100%); }
+
+/* Back to top button */
+#back-to-top {
+  position: fixed;
+  right: 16px;
+  bottom: 24px;
+  background: linear-gradient(180deg,var(--brand),#05324a);
+  color: white;
+  padding: 10px;
+  border-radius: 9999px;
+  box-shadow: 0 6px 18px rgba(2,6,23,0.6);
+  display: none;
+  z-index: 60;
+}
+
+/* Form & cards */
+.card { background: rgba(255,255,255,0.03); }
+.card h3, .card p { color: #e6eef7; }
+a.btn { background: var(--brand); color: white; padding: 10px 16px; border-radius: 8px; display:inline-block; }
+a.btn.secondary { background: transparent; border: 1px solid rgba(255,255,255,0.08); color: #dbeafe; }
+
+footer { color: var(--muted); }
