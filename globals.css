@@ -1,107 +1,95 @@
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-/* Import a clean professional font */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+/* Reset and global styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 body {
-  margin: 0;
-  font-family: 'Inter', sans-serif;
-  background: linear-gradient(180deg, #ffffff 0%, #f3f6fa 100%);
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: linear-gradient(135deg, #f5f7fa, #e4ebf1);
   color: #1e293b;
   line-height: 1.6;
 }
 
-/* Header Section */
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1.5rem 3rem;
-  background-color: white;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-  position: sticky;
-  top: 0;
-  z-index: 50;
-}
-
-header img {
-  height: 55px;
-}
-
-nav a {
-  margin: 0 1.5rem;
-  text-decoration: none;
-  color: #1e3a8a;
-  font-weight: 600;
-  transition: color 0.3s;
-}
-
-nav a:hover {
-  color: #3b82f6;
-}
-
 /* Hero Section */
 .hero {
+  height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  height: 80vh;
+  justify-content: center;
+  background: radial-gradient(circle at center, #f9fafb 0%, #e2e8f0 100%);
   text-align: center;
-  background: radial-gradient(circle at top, #e0f2fe, #ffffff);
-}
-
-.hero h1 {
-  font-size: 2.8rem;
-  color: #1e3a8a;
-  margin-bottom: 1rem;
-}
-
-.hero p {
-  font-size: 1.3rem;
-  color: #475569;
+  padding: 2rem;
 }
 
 /* Glowing Logo */
 .glow-logo {
-  width: 100px;
-  height: 100px;
+  width: 120px;
+  height: 120px;
   border-radius: 50%;
   display: flex;
-  justify-content: center;
   align-items: center;
-  background: radial-gradient(circle at center, #2563eb, #1e3a8a);
-  box-shadow: 0 0 20px rgba(37, 99, 235, 0.8);
-  animation: glowPulse 3s ease-in-out infinite;
+  justify-content: center;
+  background: radial-gradient(circle, rgba(8,108,179,0.8) 0%, rgba(8,108,179,0.4) 70%, transparent 100%);
+  box-shadow: 0 0 20px rgba(8,108,179,0.7);
+  animation: pulse 4s ease-in-out infinite;
 }
 
-@keyframes glowPulse {
-  0%, 100% {
-    box-shadow: 0 0 20px rgba(37, 99, 235, 0.8);
-  }
-  50% {
-    box-shadow: 0 0 40px rgba(37, 99, 235, 1);
-  }
+.glow-logo img {
+  width: 70px;
+  height: 70px;
 }
 
-/* Section styling */
-section {
-  padding: 5rem 2rem;
-  text-align: center;
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(8,108,179,0.7); }
+  50% { box-shadow: 0 0 40px rgba(8,108,179,1); }
+}
+
+/* Headings */
+h1 {
+  font-size: 2.5rem;
+  color: #083b6b;
+  margin-top: 1rem;
 }
 
 h2 {
-  font-size: 2rem;
-  color: #1e3a8a;
-  margin-bottom: 1rem;
+  font-size: 1.8rem;
+  color: #084c83;
+  margin-top: 2rem;
 }
 
+/* Paragraphs */
+p {
+  font-size: 1.1rem;
+  color: #475569;
+  margin: 1rem 0;
+}
+
+/* Sections */
+section {
+  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* List Styles */
+ul {
+  list-style: none;
+  margin-top: 1rem;
+}
+
+ul li {
+  margin: 0.5rem 0;
+  font-size: 1.1rem;
+}
+
+/* Footer */
 footer {
   text-align: center;
   padding: 2rem;
-  background-color: #1e3a8a;
-  color: white;
+  font-size: 0.9rem;
+  color: #64748b;
 }
