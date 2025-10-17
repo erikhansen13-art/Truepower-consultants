@@ -1,28 +1,50 @@
+/* ✅ Keep Tailwind enabled */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Import a clean professional font */
+/* ✅ Import a clean font */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 
+/* General Page Styling */
 body {
   font-family: 'Inter', sans-serif;
   background: linear-gradient(180deg, #ffffff 0%, #f3f6fa 100%);
-  color: #1e293b;
+  color: #10293b;
   margin: 0;
+  line-height: 1.6;
 }
 
-/* Subtle glow effect for the logo */
+/* ✅ Glowing Logo Circle */
+.glow-logo {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: radial-gradient(circle at center, rgba(0, 85, 255, 0.3), transparent 70%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 30px rgba(0, 100, 255, 0.4);
+  animation: pulseGlow 3s ease-in-out infinite;
+}
+
 .glow-logo img {
-  filter: drop-shadow(0 0 8px rgba(37, 99, 235, 0.5));
-  animation: glow 3s ease-in-out infinite alternate;
+  width: 60%;
+  height: auto;
 }
 
-@keyframes glow {
-  from {
-    filter: drop-shadow(0 0 4px rgba(37, 99, 235, 0.3));
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 30px rgba(0, 100, 255, 0.4);
   }
-  to {
-    filter: drop-shadow(0 0 12px rgba(37, 99, 235, 0.7));
+  50% {
+    box-shadow: 0 0 45px rgba(0, 100, 255, 0.7);
   }
+}
+
+/* Optional header/footer styling */
+header, footer {
+  text-align: center;
+  padding: 1rem;
 }
