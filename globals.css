@@ -3,48 +3,60 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ✅ Import a clean font */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+/* globals.css - Tailwind + custom */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
 
-/* General Page Styling */
-body {
-  font-family: 'Inter', sans-serif;
-  background: linear-gradient(180deg, #ffffff 0%, #f3f6fa 100%);
-  color: #10293b;
-  margin: 0;
-  line-height: 1.6;
+:root{
+  --navy-900: #0f1f3b;
+  --navy-700: #1A2C56; /* primary */
+  --accent-500: #3B82F6;
+  --silver-600: #9CA3AF;
+  --accent-50: #f6fbff;
 }
 
-/* ✅ Glowing Logo Circle */
-.glow-logo {
-  position: relative;
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  background: radial-gradient(circle at center, rgba(0, 85, 255, 0.3), transparent 70%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 0 30px rgba(0, 100, 255, 0.4);
-  animation: pulseGlow 3s ease-in-out infinite;
+/* Body & base */
+html{scroll-behavior:smooth;}
+body{
+  @apply bg-white text-slate-900;
+  font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  color: #0f1724;
 }
 
-.glow-logo img {
-  width: 60%;
-  height: auto;
+/* Utility color classes accessible from code */
+.text-navy-900 { color: var(--navy-900); }
+.bg-navy-700 { background-color: var(--navy-700); }
+.text-silver-600 { color: var(--silver-600); }
+.bg-accent-100 { background-color: var(--accent-50); }
+
+/* Glowing circle pulse */
+.glow-pulse {
+  box-shadow: 0 6px 24px rgba(26,44,86,0.12);
+  transition: box-shadow .35s ease, transform .25s ease;
+  animation: pulse 3.4s ease-in-out infinite;
 }
 
-@keyframes pulseGlow {
-  0%, 100% {
-    box-shadow: 0 0 30px rgba(0, 100, 255, 0.4);
-  }
-  50% {
-    box-shadow: 0 0 45px rgba(0, 100, 255, 0.7);
-  }
+@keyframes pulse {
+  0% { box-shadow: 0 6px 24px rgba(26,44,86,0.12); transform: translateY(0); }
+  50% { box-shadow: 0 12px 40px rgba(59,130,246,0.12); transform: translateY(-2px); }
+  100% { box-shadow: 0 6px 24px rgba(26,44,86,0.12); transform: translateY(0); }
 }
 
-/* Optional header/footer styling */
-header, footer {
-  text-align: center;
-  padding: 1rem;
+/* Nice rounded cards */
+.card {
+  @apply rounded-xl bg-white shadow-sm;
+}
+
+/* Smaller helpers */
+.text-green-600 { color: #16a34a; }
+
+/* Make sure large headings don't overflow on mobile */
+h1, h2, h3 { word-break: keep-all; }
+
+/* Improve box style for the right hero image placeholder */
+.right-hero-card {
+  border-radius: .75rem;
+  background: linear-gradient(180deg,#fff,#f8fafc);
+  box-shadow: 0 10px 30px rgba(2,6,23,0.06);
 }
