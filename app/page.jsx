@@ -2,6 +2,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 
 export default function Home() {
   return (
@@ -9,6 +10,13 @@ export default function Home() {
       {/* Header */}
       <header className="flex items-center justify-between p-6 bg-white shadow-md">
   <div className="flex items-center space-x-3">
+    <Image
+  src="/bolt-logo.jpeg"
+  alt="TruePower Bolt Logo"
+  width={60}
+  height={60}
+  className="logo-glow"
+/>
     <div className="relative w-12 h-12 flex items-center justify-center rounded-full bg-[radial-gradient(circle_at_center,#3b82f6,transparent_70%)]">
       ⚡
     </div>
