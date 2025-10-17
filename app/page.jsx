@@ -149,4 +149,3 @@ export default function TruePowerWebsite() {
     </div>
   );
 }
-Add full TruePower Consultants website layout
