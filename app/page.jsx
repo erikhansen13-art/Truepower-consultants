@@ -64,25 +64,30 @@ export default function Home() {
       </section>
 
       {/* Services */}
-      <section id="services" className="max-w-7xl mx-auto px-6 py-12">
-        <h2 className="text-3xl font-semibold text-center text-navy-900">Our Services</h2>
-        <p className="mt-3 text-center text-slate-600 max-w-2xl mx-auto">Comprehensive consulting and energy strategy services for commercial clients.</p>
-
-        <div className="grid md:grid-cols-3 gap-6 mt-8">
-          <div className="p-6 rounded-xl bg-white shadow-sm">
-            <h4 className="font-semibold text-navy-900">Energy Procurement</h4>
-            <p className="mt-2 text-slate-600 text-sm">We negotiate competitive electricity and gas supply contracts tailored to your risk tolerance and usage profile.</p>
-          </div>
-          <div className="p-6 rounded-xl bg-white shadow-sm">
-            <h4 className="font-semibold text-navy-900">Market Intelligence</h4>
-            <p className="mt-2 text-slate-600 text-sm">Access up-to-date insights on wholesale market trends, regulatory changes, and timing strategies for renewals.</p>
-          </div>
-          <div className="p-6 rounded-xl bg-white shadow-sm">
-            <h4 className="font-semibold text-navy-900">Risk Management</h4>
-            <p className="mt-2 text-slate-600 text-sm">Mitigate price volatility through strategic purchasing and contract structures that align with your energy goals.</p>
-          </div>
-        </div>
-      </section>
+    {/* Services Section */}
+<section id="services" className="py-16 bg-white">
+  <h2 className="text-3xl font-bold text-center text-[#1f3b5b] mb-8">Our Services</h2>
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto px-6">
+    <div className="border-2 border-[#1f3b5b] rounded-lg p-6 shadow-sm hover:shadow-md transition">
+      <h3 className="text-xl font-semibold mb-3 text-[#1f3b5b]">Energy Procurement</h3>
+      <p className="text-slate-700">
+        Helping clients secure the most competitive electricity and gas rates.
+      </p>
+    </div>
+    <div className="border-2 border-[#1f3b5b] rounded-lg p-6 shadow-sm hover:shadow-md transition">
+      <h3 className="text-xl font-semibold mb-3 text-[#1f3b5b]">Risk Management</h3>
+      <p className="text-slate-700">
+        Guiding you through smart energy decisions that minimize volatility and cost.
+      </p>
+    </div>
+    <div className="border-2 border-[#1f3b5b] rounded-lg p-6 shadow-sm hover:shadow-md transition">
+      <h3 className="text-xl font-semibold mb-3 text-[#1f3b5b]">Advisory Services</h3>
+      <p className="text-slate-700">
+        Expert analysis and strategic advice tailored to your energy needs.
+      </p>
+    </div>
+  </div>
+</section>
 
       {/* About & Contact */}
       <section id="about" className="max-w-7xl mx-auto px-6 py-12 bg-gradient-to-b from-white to-accent-50">
