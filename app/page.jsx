@@ -7,18 +7,14 @@ import Image from "next/image";
 export default function Home() {
   return (
     <main className="min-h-screen bg-accent-100 text-slate-900 antialiased">
-      {/* Header */}
-      <header className="flex items-center justify-between p-6 bg-white shadow-md">
-  <div className="flex items-center space-x-3">
-    <Image
-  src="/bolt-logo.jpeg"
-  alt="TruePower Bolt Logo"
-  width={60}
-  height={60}
-  className="logo-glow"
-/>
-    <div className="relative w-12 h-12 flex items-center justify-center rounded-full bg-[radial-gradient(circle_at_center,#3b82f6,transparent_70%)]">
-      ⚡
+     <div className="flex items-center space-x-3">
+  <div className="relative w-16 h-16 flex items-center justify-center rounded-full">
+    <img
+      src="/bolt-logo.jpeg"
+      alt="TruePower Bolt Logo"
+      className="logo-glow w-12 h-12 object-contain"
+    />
+</div>
     </div>
     <div>
       <h1 className="text-2xl font-bold text-[#1f3b5b]">TruePower</h1>
