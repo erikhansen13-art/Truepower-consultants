@@ -1,191 +1,80 @@
-// app/page.jsx
 "use client";
-import React, { useEffect, useState } from "react";
 
 export default function Home() {
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => {
-    const t = setTimeout(() => setMounted(true), 40);
-    return () => clearTimeout(t);
-  }, []);
-
-  const handleMail = (e) => {
-    e.preventDefault();
-    const f = e.target;
-    const subject = encodeURIComponent("Energy Quote Request");
-    const body = encodeURIComponent(
-      `Name: ${f.name.value}\nCompany: ${f.company.value}\nEmail: ${f.email.value}\nUsage: ${f.usage.value}\n\nMessage:\n${f.message.value}`
-    );
-    window.location.href = `mailto:contact@truepowerconsultants.com?subject=${subject}&body=${body}`;
-  };
-
-  const fadeClass = mounted
-    ? "opacity-100 translate-y-0"
-    : "opacity-0 translate-y-4";
-
   return (
-    <main className="min-h-screen bg-white text-slate-900 antialiased">
-      {/* Header */}
-      <header className={`max-w-7xl mx-auto px-6 py-8 flex items-center justify-between ${fadeClass} transition-all duration-700`}>
-        <div className="flex items-center gap-6">
-          <div
-            className="w-28 h-28 rounded-full bg-white flex items-center justify-center shadow-lg"
-            style={{ boxShadow: "0 0 36px rgba(59,130,246,0.28)" }}
-          >
+    <main className="min-h-screen flex flex-col items-center justify-center bg-gray-50 text-gray-900">
+
+      {/* HERO SECTION */}
+      <section className="relative flex flex-col items-center justify-center text-center py-24 bg-white text-gray-900">
+        {/* Glowing logo + name */}
+        <div className="flex items-center mb-10">
+          <div className="w-28 h-28 rounded-full flex items-center justify-center bg-white shadow-lg border-4 border-blue-800">
             <img
-              src="/bolt-logo.jpeg"
-              alt="TruePower bolt"
-              className="w-16 h-16 object-contain"
+              src="/lightning-logo.jpeg"
+              alt="TruePower Logo"
+              className="w-16 h-16 drop-shadow-[0_0_15px_rgba(30,64,175,0.8)] animate-pulse"
             />
           </div>
-          <div className="leading-tight">
-            <div className="text-4xl font-extrabold" style={{ color: "#1f3b5b" }}>
+          <div className="ml-5 text-left">
+            <h1 className="text-4xl font-extrabold text-blue-900 leading-tight">
               TruePower
-            </div>
-            <div className="text-lg font-medium text-gray-500 tracking-wide">
-              CONSULTANTS
-            </div>
+            </h1>
+            <h2 className="text-2xl font-semibold text-gray-700 -mt-1">
+              Consultants
+            </h2>
           </div>
         </div>
 
-        <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
-          <a href="#services" className="px-3 py-2 rounded-md hover:bg-gray-100" style={{ color: "#1f3b5b" }}>
-            Services
-          </a>
-          <a href="#about" className="px-3 py-2 rounded-md hover:bg-gray-100" style={{ color: "#1f3b5b" }}>
-            About
-          </a>
-          <a href="#contact" className="px-4 py-2 rounded-md text-white" style={{ backgroundColor: "#1f3b5b" }}>
-            Contact
-          </a>
-        </nav>
-      </header>
-
-      {/* Hero */}
-      <section className={`max-w-7xl mx-auto px-6 py-12 grid md:grid-cols-2 gap-8 items-center ${fadeClass} transition-all duration-700 delay-75`}>
-        <div>
-          <h1 className="text-5xl md:text-5xl font-extrabold mt-3" style={{ color: "#0f172a" }}>
-            Smarter Energy Solutions.
-          </h1>
-          <p className="mt-4 text-lg text-slate-600">
-            Helping businesses reduce costs and operate more sustainably through expert energy strategy and procurement.
-          </p>
-
-          <div className="mt-6 flex gap-3">
-            <a
-              href="#contact"
-              className="inline-block px-5 py-3 rounded-md text-white font-medium"
-              style={{ backgroundColor: "#1f3b5b" }}
-            >
-              Get a Quote
-            </a>
-            <a href="#services" className="inline-block px-5 py-3 rounded-md border border-gray-200 text-slate-700">
-              Learn More
-            </a>
-          </div>
-
-          <div className="mt-6 text-xs text-slate-500">
-            <strong>Phone:</strong> 716-303-3014 •{" "}
-            <strong>Email:</strong>{" "}
-            <a href="mailto:contact@truepowerconsultants.com" className="underline">
-              contact@truepowerconsultants.com
-            </a>
-          </div>
-        </div>
-
-        <div className="rounded-xl overflow-hidden shadow">
-          <img
-            src="/energy-chart.png"
-            alt="Energy chart"
-            className="w-full h-64 object-cover"
-          />
-        </div>
+        {/* Main tagline */}
+        <h3 className="text-5xl md:text-6xl font-bold text-blue-900 mb-3 leading-snug">
+          Smarter Energy Solutions.
+        </h3>
+        <p className="text-lg md:text-xl text-gray-700 max-w-2xl">
+          Reducing costs, increasing efficiency, and empowering sustainable choices.
+        </p>
       </section>
 
-      {/* Services */}
-      <section id="services" className={`max-w-7xl mx-auto px-6 py-12 ${fadeClass} transition-all duration-700 delay-150`}>
-        <h3 className="text-2xl font-semibold" style={{ color: "#1f3b5b" }}>Our Services</h3>
-        <div className="grid md:grid-cols-3 gap-6 mt-6">
+      {/* SERVICES SECTION */}
+      <section className="py-20 px-6 bg-gray-100 text-center w-full">
+        <h3 className="text-3xl font-bold text-blue-900 mb-12">Our Services</h3>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {[
-            { title: "Energy Procurement", desc: "We negotiate competitive electricity and gas supply contracts tailored to your usage profile." },
-            { title: "Market Intelligence", desc: "Access insights on wholesale market trends, regulatory changes, and renewal timing." },
-            { title: "Risk Management", desc: "Mitigate price volatility with strategic purchasing aligned with your goals." },
-            { title: "Community Solar", desc: "Reduce utility costs and support local renewable energy projects." },
-            { title: "Demand Response", desc: "Earn incentives for reducing load during peak events — we manage enrollment and participation." },
-            { title: "Bill Management", desc: "Streamline invoice tracking, cost analysis, and billing error recovery." },
-          ].map((s, i) => (
-            <div key={i} className="p-6 rounded-xl bg-[#f8fafc] border border-[#e6eef6] shadow-sm hover:shadow-md transition">
-              <h4 className="font-semibold text-[#1f3b5b]">{s.title}</h4>
-              <p className="mt-2 text-sm text-slate-600">{s.desc}</p>
+            { title: "Energy Procurement", desc: "Customized plans to reduce your energy costs." },
+            { title: "Energy Auditing", desc: "Identify inefficiencies and optimize consumption." },
+            { title: "Solar Solutions", desc: "Smart renewable options for long-term savings." },
+            { title: "Demand Response", desc: "Maximize savings during peak usage times." },
+            { title: "Sustainability Consulting", desc: "Achieve green certifications and ESG goals." },
+            { title: "Bill Management", desc: "Streamlined management to track and control energy expenses." },
+          ].map((service, index) => (
+            <div
+              key={index}
+              className="p-8 bg-white rounded-lg shadow-md border border-gray-200 hover:shadow-xl transition-shadow"
+            >
+              <h4 className="text-2xl font-semibold text-blue-900 mb-3">{service.title}</h4>
+              <p className="text-gray-700">{service.desc}</p>
             </div>
           ))}
         </div>
       </section>
 
-      {/* About */}
-      <section id="about" className={`max-w-7xl mx-auto px-6 py-12 bg-gradient-to-r from-white to-gray-50 rounded-lg ${fadeClass} transition-all duration-700 delay-200`}>
-        <div className="md:flex md:items-center md:gap-8">
-          <div className="md:w-1/2">
-            <h3 className="text-2xl font-semibold text-[#1f3b5b]">About TruePower</h3>
-            <p className="mt-2 text-slate-600">
-              TruePower Consultants is an independent energy advisory firm specializing in commercial and industrial solutions. We bring transparency, competitive pricing, and expert negotiation to every client we serve.
-            </p>
-            <ul className="mt-4 grid gap-2 text-sm text-slate-700">
-              <li>• 100% independent — no hidden supplier incentives</li>
-              <li>• Experienced consultants with nationwide reach</li>
-              <li>• Decades of expertise in deregulated energy markets</li>
-            </ul>
-          </div>
-
-          {/* Only Team Photo */}
-          <div className="mt-6 md:mt-0 md:w-1/2">
-            <div className="rounded-xl overflow-hidden shadow">
-              <img src="/team-photo.png" alt="Team" className="w-full h-64 object-cover" />
-            </div>
-          </div>
-        </div>
+      {/* TEAM SECTION */}
+      <section className="py-20 px-6 bg-white text-center w-full">
+        <h3 className="text-3xl font-bold text-blue-900 mb-10">Our Team</h3>
+        <img
+          src="https://images.unsplash.com/photo-1590608897129-79da98d1596d?auto=format&fit=crop&w=1600&q=80"
+          alt="Team Meeting"
+          className="w-full max-w-5xl mx-auto rounded-lg shadow-lg"
+        />
       </section>
 
-      {/* Contact */}
-      <section id="contact" className={`max-w-7xl mx-auto px-6 py-12 ${fadeClass} transition-all duration-700 delay-250`}>
-        <h3 className="text-2xl font-semibold text-[#1f3b5b]">Request a Quote</h3>
-        <div className="mt-6 grid md:grid-cols-2 gap-6">
-          <form className="bg-white p-6 rounded-xl shadow-sm" onSubmit={handleMail}>
-            <div className="grid gap-3">
-              <input name="name" placeholder="Your name" className="w-full border border-slate-200 rounded-md px-3 py-2" required />
-              <input name="company" placeholder="Company" className="w-full border border-slate-200 rounded-md px-3 py-2" />
-              <input name="email" type="email" placeholder="Email" className="w-full border border-slate-200 rounded-md px-3 py-2" required />
-              <input name="usage" placeholder="Annual usage (kWh or therms)" className="w-full border border-slate-200 rounded-md px-3 py-2" />
-              <textarea name="message" rows={4} placeholder="Additional details (locations, meters, etc.)" className="w-full border border-slate-200 rounded-md px-3 py-2" />
-              <div className="flex items-center gap-3">
-                <button type="submit" className="px-4 py-2 rounded-md bg-green-600 text-white">Send via Email</button>
-                <button type="reset" className="px-4 py-2 rounded-md border">Reset</button>
-              </div>
-            </div>
-          </form>
-
-          <div className="p-6 rounded-xl bg-white shadow-sm">
-            <h4 className="font-semibold">Office</h4>
-            <p className="text-sm text-slate-600 mt-2">
-              1 Seneca Street, Floor 29<br />Buffalo, NY 14203
-            </p>
-            <div className="mt-4">
-              <p className="text-sm font-medium">Hours</p>
-              <p className="text-sm text-slate-600">Mon–Fri 9:00–17:00</p>
-            </div>
-            <div className="mt-6">
-              <p className="text-sm font-medium">Follow</p>
-              <div className="flex gap-3 mt-2">
-                <a href="#" className="text-sm underline">LinkedIn</a>
-                <a href="#" className="text-sm underline">X</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <footer className="mt-16 text-sm text-slate-500 text-center pb-10">
-        © {new Date().getFullYear()} TruePower Consultants — All rights reserved.
+      {/* CONTACT SECTION */}
+      <footer className="py-10 bg-blue-900 text-white text-center w-full">
+        <h3 className="text-2xl font-semibold mb-4">Contact Us</h3>
+        <p>1 Seneca Street, Floor 29<br />Buffalo, NY 14203</p>
+        <p className="mt-2">info@truepowerconsultants.com | (555) 123-4567</p>
+        <p className="text-sm text-gray-300 mt-6">
+          © {new Date().getFullYear()} TruePower Consultants. All rights reserved.
+        </p>
       </footer>
     </main>
   );
