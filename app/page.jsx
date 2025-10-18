@@ -1,4 +1,3 @@
-// app/page.jsx
 "use client";
 import Image from "next/image";
 
@@ -7,29 +6,27 @@ export default function Home() {
     <main className="min-h-screen bg-white text-gray-800">
       {/* Header */}
       <header className="flex items-center justify-between px-8 py-6 border-b border-gray-200">
-        <div className="flex items-center space-x-4">
-          {/* Glowing pulsing logo */}
-          <div className="relative flex items-center justify-center w-20 h-20 rounded-full bg-white shadow-lg">
+        <div className="flex items-center space-x-5">
+          {/* Logo with subtle pulsing glow */}
+          <div className="relative flex items-center justify-center w-16 h-16 rounded-full bg-white shadow-lg">
             <div className="absolute inset-0 rounded-full animate-pulse-glow"></div>
             <Image
               src="/lightning-logo.jpeg"
               alt="TruePower logo"
-              width={60}
-              height={60}
+              width={48}
+              height={48}
               className="z-10"
             />
           </div>
-          <div>
-            <h1 className="text-5xl font-bold text-[#0b2343] leading-none">
-              TruePower
-            </h1>
-            <p className="text-center text-lg text-gray-400 tracking-widest">
+          <div className="leading-tight">
+            <h1 className="text-5xl font-bold text-[#0b2343]">TruePower</h1>
+            <p className="text-center text-lg text-gray-400 tracking-widest mt-1">
               CONSULTANTS
             </p>
           </div>
         </div>
 
-        <nav className="flex space-x-8 text-lg">
+        <nav className="flex space-x-8 text-lg font-medium">
           <a href="#services" className="hover:text-[#0b2343] transition">
             Services
           </a>
@@ -74,12 +71,12 @@ export default function Home() {
           </p>
         </div>
 
-        <div className="mt-10 md:mt-0 md:ml-16 w-full md:w-[480px] h-[250px] flex items-center justify-center border border-gray-200 rounded-lg">
+        <div className="mt-10 md:mt-0 md:ml-16 w-full md:w-[440px] h-[240px] flex items-center justify-center border border-gray-200 rounded-lg bg-gray-50">
           <Image
             src="/energy-chart.jpg"
             alt="Energy chart"
-            width={480}
-            height={250}
+            width={440}
+            height={240}
             className="rounded-lg"
           />
         </div>
@@ -237,17 +234,17 @@ export default function Home() {
       <style jsx>{`
         @keyframes pulseGlow {
           0% {
-            box-shadow: 0 0 10px 2px rgba(10, 50, 100, 0.4);
+            box-shadow: 0 0 8px 2px rgba(40, 100, 200, 0.5);
           }
           50% {
-            box-shadow: 0 0 25px 8px rgba(10, 50, 100, 0.6);
+            box-shadow: 0 0 20px 6px rgba(40, 100, 220, 0.7);
           }
           100% {
-            box-shadow: 0 0 10px 2px rgba(10, 50, 100, 0.4);
+            box-shadow: 0 0 8px 2px rgba(40, 100, 200, 0.5);
           }
         }
         .animate-pulse-glow {
-          animation: pulseGlow 2.5s infinite;
+          animation: pulseGlow 2.8s infinite ease-in-out;
         }
       `}</style>
     </main>
