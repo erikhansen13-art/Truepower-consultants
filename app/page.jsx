@@ -1,6 +1,4 @@
-// app/page.jsx  (or paste into your existing page component)
 import Image from "next/image";
-import React from "react";
 
 export default function Home() {
   return (
@@ -8,176 +6,178 @@ export default function Home() {
       {/* HEADER */}
       <header className="flex items-center justify-between px-8 py-6">
         <div className="flex items-center gap-6">
-          {/* Glowing circle container (larger, overflow-hidden so square doesn't poke out) */}
-          <div className="relative flex items-center justify-center w-28 h-28 rounded-full bg-white">
-            {/* glow layer (pulsing) */}
-            <div className="absolute inset-0 rounded-full animate-pulse-glow hover:animate-pulse-glow-strong pointer-events-none" />
-            {/* logo image (object-contain so it won't show the square corners) */}
-            <div className="relative z-10 w-16 h-16 rounded-full overflow-hidden flex items-center justify-center">
-              <Image
-                src="/bolt-logo.jpeg"
-                alt="TruePower Bolt Logo"
-                width={64}
-                height={64}
-                className="object-contain"
-              />
-            </div>
+          {/* Larger glowing circle around logo */}
+          <div className="relative flex items-center justify-center w-32 h-32 rounded-full bg-white overflow-hidden shadow-lg">
+            <div className="absolute inset-0 rounded-full bg-blue-300 blur-2xl opacity-70 animate-pulse"></div>
+            <Image
+              src="/bolt-logo.jpeg"
+              alt="TruePower Logo"
+              width={72}
+              height={72}
+              className="relative z-10 object-contain"
+            />
           </div>
 
-          {/* Company name - larger TruePower, CONSULTANTS lighter and centered under it */}
-          <div className="flex flex-col items-start leading-tight">
-            <h1 className="text-5xl font-extrabold text-[#0b2b4a] leading-tight">TruePower</h1>
-            <div className="w-full">
-              <p className="text-sm text-slate-400 tracking-widest mt-1">CONSULTANTS</p>
-            </div>
+          {/* Company Name */}
+          <div className="flex flex-col leading-tight">
+            <h1 className="text-5xl font-extrabold text-[#0b2b4a]">
+              TruePower
+            </h1>
+            <p className="text-base text-slate-400 tracking-[0.25em] text-center mt-1">
+              CONSULTANTS
+            </p>
           </div>
         </div>
 
-        {/* NAV */}
+        {/* NAVIGATION */}
         <nav className="flex items-center gap-8">
-          <a href="#services" className="text-lg text-gray-700 hover:text-[#0b2b4a] transition">Services</a>
-          <a href="#about" className="text-lg text-gray-700 hover:text-[#0b2b4a] transition">About</a>
-          <a href="#contact" className="inline-block bg-[#0b2b4a] text-white px-6 py-2 rounded-lg shadow">Contact</a>
+          <a href="#services" className="text-lg text-gray-700 hover:text-[#0b2b4a]">
+            Services
+          </a>
+          <a href="#about" className="text-lg text-gray-700 hover:text-[#0b2b4a]">
+            About
+          </a>
+          <a
+            href="#contact"
+            className="inline-block bg-[#0b2b4a] text-white px-6 py-2 rounded-lg shadow hover:bg-[#123b65]"
+          >
+            Contact
+          </a>
         </nav>
       </header>
 
-      {/* HERO */}
-      <section className="px-12 py-12 flex flex-col lg:flex-row items-start gap-10">
-        <div className="flex-1 max-w-2xl">
-          <h2 className="text-4xl lg:text-4xl font-bold text-[#0b2b4a] mb-4">Smarter Energy Solutions.</h2>
-          <p className="text-gray-600 mb-6">Working with businesses to manage and reduce energy costs.</p>
+      {/* HERO SECTION */}
+      <section className="flex flex-col lg:flex-row items-center justify-between px-12 py-16 bg-white">
+        <div className="max-w-xl">
+          <h2 className="text-4xl font-extrabold text-[#0b2b4a] mb-4">
+            Smarter Energy Solutions.
+          </h2>
+          <p className="text-gray-600 text-lg mb-8">
+            Working with businesses to manage and reduce energy costs.
+          </p>
 
-          <div className="flex gap-4 mb-6">
-            <button className="bg-[#0b2b4a] text-white px-6 py-3 rounded-md shadow">Get a Quote</button>
-            <button className="border border-slate-300 px-6 py-3 rounded-md">Learn More</button>
+          <div className="flex gap-4 mb-4">
+            <button className="bg-[#0b2b4a] text-white px-6 py-3 rounded-lg shadow hover:bg-[#123b65]">
+              Get a Quote
+            </button>
+            <button className="border border-gray-300 text-gray-700 px-6 py-3 rounded-lg hover:bg-gray-100">
+              Learn More
+            </button>
           </div>
 
-          <p className="text-sm text-gray-600">
-            <strong>Phone:</strong> 716-303-3014 &nbsp;·&nbsp;
+          <p className="text-sm text-gray-500">
+            <strong>Phone:</strong> 716-303-3014 ·{" "}
             <strong>Email:</strong>{" "}
-            <a href="mailto:contact@truepowerconsultants.com" className="text-blue-700 hover:underline">contact@truepowerconsultants.com</a>
+            <a
+              href="mailto:contact@truepowerconsultants.com"
+              className="text-[#0b2b4a] hover:underline"
+            >
+              contact@truepowerconsultants.com
+            </a>
           </p>
         </div>
 
-        {/* ENERGY CHART - wider rectangle to fill space */}
-        <div className="flex-shrink-0 w-full lg:w-[560px]">
-          <div className="border border-gray-200 rounded-lg bg-white shadow-sm h-[320px] flex items-center justify-center">
-            {/* Put a real chart component or an <img src="/chart.jpeg" /> here */}
+        {/* ENERGY CHART RECTANGLE */}
+        <div className="flex-shrink-0 w-full lg:w-[580px] mt-10 lg:mt-0">
+          <div className="border border-gray-200 rounded-lg bg-white shadow-sm h-[280px] flex items-center justify-center">
             <div className="text-gray-400">Energy chart</div>
           </div>
         </div>
       </section>
 
-      {/* SERVICES */}
-      <section id="services" className="bg-slate-50 py-16 px-12">
+      {/* OUR SERVICES */}
+      <section id="services" className="px-12 py-16 bg-[#f8fafc]">
         <h3 className="text-2xl font-bold text-[#0b2b4a] mb-8">Our Services</h3>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <ServiceCard
-            title="Energy Procurement"
-            description="We negotiate competitive electricity and gas supply contracts tailored to your usage profile."
-          />
-          <ServiceCard
-            title="Market Intelligence"
-            description="Access insights on wholesale market trends, regulatory changes, and renewal timing."
-          />
-          <ServiceCard
-            title="Risk Management"
-            description="Mitigate price volatility with strategic purchasing aligned with your goals."
-          />
-          <ServiceCard
-            title="Community Solar"
-            description="Reduce utility costs and support local renewable energy projects."
-          />
-          <ServiceCard
-            title="Demand Response"
-            description="Earn incentives for reducing load during peak events — we manage enrollment and participation."
-          />
-          <ServiceCard
-            title="Bill Management"
-            description="Streamline invoice tracking, cost analysis, and billing error recovery."
-          />
-        </div>
-      </section>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="p-6 bg-white shadow rounded-lg">
+            <h4 className="font-semibold text-[#0b2b4a] mb-2">Energy Procurement</h4>
+            <p>We negotiate competitive electricity and gas supply contracts tailored to your usage profile.</p>
+          </div>
 
-      {/* ABOUT */}
-      <section id="about" className="py-16 px-12">
-        <h3 className="text-2xl font-bold text-[#0b2b4a] mb-4">About TruePower</h3>
-        <p className="text-gray-700 max-w-3xl">
-          TruePower Consultants is an independent energy advisory firm specializing in commercial and industrial solutions.
-          We bring transparency, competitive pricing, and expert negotiation to every client we serve.
-        </p>
-        <ul className="list-disc list-inside mt-4 text-gray-700">
-          <li>100% independent — no hidden supplier incentives</li>
-          <li>Experienced consultants with nationwide reach</li>
-          <li>Decades of expertise in deregulated energy markets</li>
-        </ul>
-      </section>
+          <div className="p-6 bg-white shadow rounded-lg">
+            <h4 className="font-semibold text-[#0b2b4a] mb-2">Market Intelligence</h4>
+            <p>Access insights on wholesale market trends, regulatory changes, and renewal timing.</p>
+          </div>
 
-      {/* CONTACT */}
-      <section id="contact" className="bg-slate-50 py-16 px-12">
-        <h3 className="text-2xl font-bold text-[#0b2b4a] mb-6">Request a Quote</h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <form className="space-y-4">
-            <input className="w-full p-3 border rounded-md" placeholder="Your name" />
-            <input className="w-full p-3 border rounded-md" placeholder="Company" />
-            <input className="w-full p-3 border rounded-md" placeholder="Email" />
-            <input className="w-full p-3 border rounded-md" placeholder="Annual usage (kWh or therms)" />
-            <textarea className="w-full p-3 border rounded-md h-28" placeholder="Additional details (locations, meters, etc.)" />
-            <div className="flex gap-4">
-              <button type="submit" className="bg-green-600 text-white px-6 py-3 rounded-md">Send via Email</button>
-              <button type="reset" className="border px-6 py-3 rounded-md">Reset</button>
-            </div>
-          </form>
+          <div className="p-6 bg-white shadow rounded-lg">
+            <h4 className="font-semibold text-[#0b2b4a] mb-2">Risk Management</h4>
+            <p>Mitigate price volatility with strategic purchasing aligned with your goals.</p>
+          </div>
 
-          <div className="bg-white p-6 rounded-lg border">
-            <h4 className="font-semibold text-lg mb-2">Office</h4>
-            <p>1 Seneca Street, Floor 29<br/>Buffalo, NY 14203</p>
-            <p className="mt-4">Hours: Mon–Fri 9:00–17:00</p>
-            <p className="mt-4">Follow: <a href="#" className="text-blue-700">LinkedIn</a> · <a href="#" className="text-blue-700">X</a></p>
+          <div className="p-6 bg-white shadow rounded-lg">
+            <h4 className="font-semibold text-[#0b2b4a] mb-2">Community Solar</h4>
+            <p>Reduce utility costs and support local renewable energy projects.</p>
+          </div>
+
+          <div className="p-6 bg-white shadow rounded-lg">
+            <h4 className="font-semibold text-[#0b2b4a] mb-2">Demand Response</h4>
+            <p>Earn incentives for reducing load during peak events — we manage enrollment and participation.</p>
+          </div>
+
+          <div className="p-6 bg-white shadow rounded-lg">
+            <h4 className="font-semibold text-[#0b2b4a] mb-2">Bill Management</h4>
+            <p>Streamline invoice tracking, cost analysis, and billing error recovery.</p>
           </div>
         </div>
       </section>
 
-      {/* FOOTER */}
-      <footer className="border-t text-center py-6 text-sm text-gray-500">© {new Date().getFullYear()} TruePower Consultants — All rights reserved.</footer>
+      {/* ABOUT TRUEPOWER */}
+      <section id="about" className="px-12 py-16 bg-white">
+        <h3 className="text-2xl font-bold text-[#0b2b4a] mb-6">About TruePower</h3>
+        <p className="text-gray-700 mb-6 max-w-3xl">
+          TruePower Consultants is an independent energy advisory firm specializing in commercial and industrial solutions. We bring transparency, competitive pricing, and expert negotiation to every client we serve.
+        </p>
+        <ul className="list-disc list-inside text-gray-700 space-y-2">
+          <li>100% independent — no hidden supplier incentives</li>
+          <li>Experienced consultants with nationwide reach</li>
+          <li>Decades of expertise in deregulated energy markets</li>
+        </ul>
 
-      {/* --- Styles for pulsing glow --- */}
-      <style jsx>{`
-        @keyframes pulseGlow {
-          0% {
-            box-shadow: 0 0 8px 3px rgba(10, 92, 180, 0.25);
-          }
-          50% {
-            box-shadow: 0 0 30px 12px rgba(10, 120, 220, 0.45);
-          }
-          100% {
-            box-shadow: 0 0 8px 3px rgba(10, 92, 180, 0.25);
-          }
-        }
-        @keyframes pulseGlowStrong {
-          0% { box-shadow: 0 0 12px 4px rgba(10,120,220,0.35); }
-          50% { box-shadow: 0 0 40px 16px rgba(10,160,240,0.6); }
-          100% { box-shadow: 0 0 12px 4px rgba(10,120,220,0.35); }
-        }
-        .animate-pulse-glow {
-          animation: pulseGlow 2.6s infinite ease-in-out;
-          border-radius: inherit;
-        }
-        .animate-pulse-glow:hover {
-          /* tiny extra brightness on hover */
-          animation: pulseGlowStrong 1.8s infinite ease-in-out;
-        }
-      `}</style>
+        {/* Team image box */}
+        <div className="mt-10 border border-gray-200 rounded-lg bg-[#f8fafc] shadow-sm h-[280px] flex items-center justify-center">
+          <div className="text-gray-400">Team</div>
+        </div>
+      </section>
+
+      {/* REQUEST A QUOTE */}
+      <section id="contact" className="px-12 py-16 bg-[#f8fafc]">
+        <h3 className="text-2xl font-bold text-[#0b2b4a] mb-6">Request a Quote</h3>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <form className="space-y-4">
+            <input type="text" placeholder="Your name" className="w-full border border-gray-300 rounded-lg px-4 py-2" />
+            <input type="text" placeholder="Company" className="w-full border border-gray-300 rounded-lg px-4 py-2" />
+            <input type="email" placeholder="Email" className="w-full border border-gray-300 rounded-lg px-4 py-2" />
+            <input type="text" placeholder="Annual usage (kWh or therms)" className="w-full border border-gray-300 rounded-lg px-4 py-2" />
+            <textarea placeholder="Additional details (locations, meters, etc.)" rows="4" className="w-full border border-gray-300 rounded-lg px-4 py-2"></textarea>
+            <div className="flex gap-4">
+              <button type="submit" className="bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700">
+                Send via Email
+              </button>
+              <button type="reset" className="border border-gray-300 px-6 py-2 rounded-lg hover:bg-gray-100">
+                Reset
+              </button>
+            </div>
+          </form>
+
+          <div className="space-y-4">
+            <div>
+              <h4 className="font-semibold text-[#0b2b4a]">Office</h4>
+              <p>1 Seneca Street, Floor 29<br />Buffalo, NY 14203</p>
+            </div>
+            <div>
+              <h4 className="font-semibold text-[#0b2b4a]">Hours</h4>
+              <p>Mon–Fri 9:00–17:00</p>
+            </div>
+            <div>
+              <h4 className="font-semibold text-[#0b2b4a]">Follow</h4>
+              <p>
+                <a href="#" className="text-blue-600 hover:underline">LinkedIn</a> ·{" "}
+                <a href="#" className="text-gray-600 hover:underline">X</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
-  );
-}
-
-/* Helper ServiceCard (kept inline for single-file copy/paste) */
-function ServiceCard({ title, description }) {
-  return (
-    <div className="bg-white border rounded-lg p-6 shadow-sm hover:shadow-md transition">
-      <h4 className="font-semibold text-[#0b2b4a] mb-2">{title}</h4>
-      <p className="text-sm text-gray-600">{description}</p>
-    </div>
   );
 }
