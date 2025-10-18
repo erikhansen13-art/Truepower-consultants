@@ -6,18 +6,20 @@ export default function Home() {
     <main className="min-h-screen bg-white text-gray-800">
       {/* Header */}
       <header className="flex items-center justify-between px-8 py-6 border-b border-gray-200">
-        <div className="flex items-center space-x-5">
-          {/* Logo with subtle pulsing glow */}
-          <div className="relative flex items-center justify-center w-16 h-16 rounded-full bg-white shadow-lg">
+        <div className="flex items-center space-x-4">
+          {/* Glowing circular logo */}
+          <div className="relative flex items-center justify-center w-16 h-16 rounded-full bg-white shadow-md">
             <div className="absolute inset-0 rounded-full animate-pulse-glow"></div>
             <Image
-              src="/lightning-logo.jpeg"
+              src="/bolt-logo.jpeg" // ✅ correct logo
               alt="TruePower logo"
-              width={48}
-              height={48}
+              width={50}
+              height={50}
               className="z-10"
             />
           </div>
+
+          {/* Company Name */}
           <div className="leading-tight">
             <h1 className="text-5xl font-bold text-[#0b2343]">TruePower</h1>
             <p className="text-center text-lg text-gray-400 tracking-widest mt-1">
@@ -26,7 +28,8 @@ export default function Home() {
           </div>
         </div>
 
-        <nav className="flex space-x-8 text-lg font-medium">
+        {/* Nav */}
+        <nav className="flex items-center space-x-8 text-lg font-medium">
           <a href="#services" className="hover:text-[#0b2343] transition">
             Services
           </a>
@@ -35,7 +38,7 @@ export default function Home() {
           </a>
           <a
             href="#contact"
-            className="px-5 py-2 bg-[#0b2343] text-white rounded-lg hover:bg-gray-700 transition"
+            className="flex items-center justify-center px-5 py-2 bg-[#0b2343] text-white rounded-lg hover:bg-gray-700 transition"
           >
             Contact
           </a>
@@ -71,22 +74,21 @@ export default function Home() {
           </p>
         </div>
 
-        <div className="mt-10 md:mt-0 md:ml-16 w-full md:w-[440px] h-[240px] flex items-center justify-center border border-gray-200 rounded-lg bg-gray-50">
+        {/* Energy Chart */}
+        <div className="mt-10 md:mt-0 md:ml-12 w-full md:w-[340px] h-[200px] flex items-center justify-center border border-gray-200 rounded-lg bg-gray-50">
           <Image
             src="/energy-chart.jpg"
             alt="Energy chart"
-            width={440}
-            height={240}
+            width={340}
+            height={200}
             className="rounded-lg"
           />
         </div>
       </section>
 
       {/* Services Section */}
-      <section id="services" className="px-10 py-20 bg-gray-50">
-        <h3 className="text-2xl font-semibold text-[#0b2343] mb-10">
-          Our Services
-        </h3>
+      <section id="services" className="bg-gray-50 py-16 px-10">
+        <h2 className="text-2xl font-bold text-[#0b2343] mb-10">Our Services</h2>
         <div className="grid md:grid-cols-3 gap-6">
           {[
             {
@@ -113,87 +115,78 @@ export default function Home() {
               title: "Bill Management",
               desc: "Streamline invoice tracking, cost analysis, and billing error recovery.",
             },
-          ].map((service, index) => (
+          ].map((service) => (
             <div
-              key={index}
-              className="p-6 bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition"
+              key={service.title}
+              className="p-6 bg-white rounded-lg shadow-sm border border-gray-200 hover:shadow-md transition"
             >
-              <h4 className="text-lg font-semibold text-[#0b2343] mb-2">
+              <h3 className="text-xl font-semibold mb-2 text-[#0b2343]">
                 {service.title}
-              </h4>
-              <p className="text-gray-600 text-sm">{service.desc}</p>
+              </h3>
+              <p className="text-gray-600">{service.desc}</p>
             </div>
           ))}
         </div>
       </section>
 
       {/* About Section */}
-      <section id="about" className="px-10 py-20 bg-white">
-        <h3 className="text-2xl font-semibold text-[#0b2343] mb-6">
-          About TruePower
-        </h3>
-        <div className="grid md:grid-cols-2 gap-10 items-center">
-          <div>
-            <p className="text-gray-700 mb-4">
-              TruePower Consultants is an independent energy advisory firm
-              specializing in commercial and industrial energy solutions. We
-              bring transparency, competitive pricing, and expert negotiation to
-              every client we serve.
-            </p>
-            <ul className="list-disc list-inside text-gray-600">
-              <li>100% independent — no hidden supplier incentives</li>
-              <li>Experienced consultants with nationwide reach</li>
-              <li>Decades of expertise in deregulated energy markets</li>
-            </ul>
-          </div>
-          <div className="border border-gray-200 rounded-lg flex items-center justify-center h-[250px] bg-gray-50">
-            <Image
-              src="/team-photo.jpg"
-              alt="TruePower Team"
-              width={400}
-              height={250}
-              className="rounded-lg"
-            />
-          </div>
+      <section id="about" className="py-16 px-10 bg-white">
+        <h2 className="text-2xl font-bold text-[#0b2343] mb-6">About TruePower</h2>
+        <p className="max-w-3xl text-gray-700 mb-6">
+          TruePower Consultants is an independent energy advisory firm specializing in
+          commercial and industrial energy solutions. We bring transparency, competitive
+          pricing, and expert negotiation to every client we serve.
+        </p>
+        <ul className="list-disc ml-6 text-gray-600 space-y-2">
+          <li>100% independent — no hidden supplier incentives</li>
+          <li>Experienced consultants with nationwide reach</li>
+          <li>Decades of experience in deregulated energy markets</li>
+        </ul>
+
+        {/* Team Photo */}
+        <div className="mt-10 w-full md:w-[600px] border border-gray-200 rounded-lg bg-gray-50">
+          <Image
+            src="/team-photo.jpg"
+            alt="TruePower team"
+            width={600}
+            height={300}
+            className="rounded-lg"
+          />
         </div>
       </section>
 
-      {/* Contact / Quote Section */}
-      <section id="contact" className="px-10 py-20 bg-gray-50">
-        <h3 className="text-2xl font-semibold text-[#0b2343] mb-6">
-          Request a Quote
-        </h3>
-        <p className="text-gray-600 mb-8">
-          Let us find the best energy rates for your business. Fill out the form
-          below to get started.
-        </p>
+      {/* Contact Section */}
+      <section
+        id="contact"
+        className="bg-gray-50 py-16 px-10 border-t border-gray-200"
+      >
+        <h2 className="text-2xl font-bold text-[#0b2343] mb-6">Request a Quote</h2>
         <div className="grid md:grid-cols-2 gap-10">
           <form className="space-y-4">
             <input
               type="text"
               placeholder="Your name"
-              className="w-full border border-gray-300 rounded-lg p-3"
+              className="w-full p-3 border border-gray-300 rounded-lg"
             />
             <input
               type="text"
               placeholder="Company"
-              className="w-full border border-gray-300 rounded-lg p-3"
+              className="w-full p-3 border border-gray-300 rounded-lg"
             />
             <input
               type="email"
               placeholder="Email"
-              className="w-full border border-gray-300 rounded-lg p-3"
+              className="w-full p-3 border border-gray-300 rounded-lg"
             />
             <input
               type="text"
               placeholder="Annual usage (kWh or therms)"
-              className="w-full border border-gray-300 rounded-lg p-3"
+              className="w-full p-3 border border-gray-300 rounded-lg"
             />
             <textarea
               placeholder="Additional details (locations, meters, etc.)"
-              rows="3"
-              className="w-full border border-gray-300 rounded-lg p-3"
-            ></textarea>
+              className="w-full p-3 border border-gray-300 rounded-lg h-24"
+            />
             <div className="flex space-x-4">
               <button
                 type="submit"
@@ -211,21 +204,21 @@ export default function Home() {
           </form>
 
           <div>
-            <h4 className="font-semibold text-[#0b2343] mb-2">Office</h4>
-            <p className="text-gray-600 mb-4">
-              1 Seneca Street, Floor 29
-              <br />
-              Buffalo, NY 14203
+            <h3 className="text-xl font-semibold text-[#0b2343] mb-4">Office</h3>
+            <p>1 Seneca Street, Floor 29</p>
+            <p>Buffalo, NY 14203</p>
+            <p className="mt-2">
+              <strong>Hours:</strong> Mon–Fri 9:00–17:00
             </p>
-            <h4 className="font-semibold text-[#0b2343] mb-2">Hours</h4>
-            <p className="text-gray-600 mb-4">Mon–Fri 9:00–17:00</p>
-            <h4 className="font-semibold text-[#0b2343] mb-2">Follow</h4>
-            <a
-              href="#"
-              className="text-[#0b2343] hover:underline text-sm font-medium"
-            >
-              LinkedIn ✕
-            </a>
+            <p className="mt-2">
+              <strong>Follow:</strong>{" "}
+              <a
+                href="https://linkedin.com"
+                className="text-[#0b2343] hover:underline"
+              >
+                LinkedIn
+              </a>
+            </p>
           </div>
         </div>
       </section>
@@ -234,17 +227,17 @@ export default function Home() {
       <style jsx>{`
         @keyframes pulseGlow {
           0% {
-            box-shadow: 0 0 8px 2px rgba(40, 100, 200, 0.5);
+            box-shadow: 0 0 8px 2px rgba(40, 100, 200, 0.4);
           }
           50% {
-            box-shadow: 0 0 20px 6px rgba(40, 100, 220, 0.7);
+            box-shadow: 0 0 18px 6px rgba(40, 120, 255, 0.75);
           }
           100% {
-            box-shadow: 0 0 8px 2px rgba(40, 100, 200, 0.5);
+            box-shadow: 0 0 8px 2px rgba(40, 100, 200, 0.4);
           }
         }
         .animate-pulse-glow {
-          animation: pulseGlow 2.8s infinite ease-in-out;
+          animation: pulseGlow 3s infinite ease-in-out;
         }
       `}</style>
     </main>
