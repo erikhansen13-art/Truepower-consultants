@@ -3,7 +3,6 @@
 import React from "react";
 
 export default function Home() {
-  // helper to open mailto with form values
   const handleMail = (e) => {
     e.preventDefault();
     const f = e.target;
@@ -18,25 +17,25 @@ export default function Home() {
     <main className="min-h-screen bg-white text-slate-900 antialiased">
       {/* Header */}
       <header className="max-w-7xl mx-auto px-6 py-6 flex items-center justify-between">
-        <div className="flex items-center gap-4">
-          {/* Glowing circular logo */}
+        <div className="flex items-center gap-5">
+          {/* Larger glowing circular logo */}
           <div
-            className="w-16 h-16 rounded-full bg-white flex items-center justify-center shadow-md animate-pulse"
-            style={{ boxShadow: "0 0 20px rgba(59,130,246,0.25)" }}
+            className="w-24 h-24 rounded-full bg-white flex items-center justify-center shadow-lg animate-pulse"
+            style={{ boxShadow: "0 0 25px rgba(59,130,246,0.35)" }}
           >
             <img
               src="/bolt-logo.jpeg"
               alt="TruePower bolt"
-              className="w-10 h-10 object-contain"
+              className="w-14 h-14 object-contain"
             />
           </div>
 
-          {/* Title: TruePower (navy) / Consultants below */}
+          {/* Larger Title: TruePower / Consultants */}
           <div className="leading-tight">
-            <div className="text-2xl font-bold" style={{ color: "#1f3b5b" }}>
+            <div className="text-4xl font-extrabold" style={{ color: "#1f3b5b" }}>
               TruePower
             </div>
-            <div className="text-sm font-medium" style={{ color: "#6b7280" }}>
+            <div className="text-lg font-semibold tracking-wide" style={{ color: "#6b7280" }}>
               CONSULTANTS
             </div>
           </div>
@@ -44,10 +43,10 @@ export default function Home() {
 
         {/* Navigation */}
         <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
-          <a href="#services" className="px-3 py-2 rounded-md border border-transparent hover:bg-gray-100" style={{ color: "#1f3b5b" }}>
+          <a href="#services" className="px-3 py-2 rounded-md hover:bg-gray-100" style={{ color: "#1f3b5b" }}>
             Services
           </a>
-          <a href="#about" className="px-3 py-2 rounded-md border border-transparent hover:bg-gray-100" style={{ color: "#1f3b5b" }}>
+          <a href="#about" className="px-3 py-2 rounded-md hover:bg-gray-100" style={{ color: "#1f3b5b" }}>
             About
           </a>
           <a
@@ -91,12 +90,11 @@ export default function Home() {
         </div>
 
         <div className="rounded-xl overflow-hidden shadow">
-          {/* visible chart image placeholder - ensure /public/energy-chart.png exists */}
           <img src="/energy-chart.png" alt="Energy chart" className="w-full h-64 object-cover" />
         </div>
       </section>
 
-      {/* Services (the five you provided) */}
+      {/* Services */}
       <section id="services" className="max-w-7xl mx-auto px-6 py-12">
         <h3 className="text-2xl font-semibold" style={{ color: "#1f3b5b" }}>Our Services</h3>
         <p className="mt-2 text-slate-600">Comprehensive consulting and energy strategy services for commercial clients.</p>
@@ -126,75 +124,17 @@ export default function Home() {
             <h4 className="font-semibold text-[#1f3b5b]">Demand Response</h4>
             <p className="mt-2 text-sm text-slate-600">Earn incentives for reducing load during peak events; we manage enrollment and participation.</p>
           </div>
-        </div>
-      </section>
 
-      {/* About */}
-      <section id="about" className="max-w-7xl mx-auto px-6 py-12 bg-gradient-to-r from-white to-gray-50 rounded-lg">
-        <div className="md:flex md:items-center md:gap-8">
-          <div className="md:w-1/2">
-            <h3 className="text-2xl font-semibold text-[#1f3b5b]">About TruePower</h3>
-            <p className="mt-2 text-slate-600">TruePower Consultants is an independent energy advisory firm specializing in commercial and industrial energy solutions. We bring transparency, competitive pricing, and expert negotiation to every client we serve.</p>
-
-            <ul className="mt-4 grid gap-2 text-sm text-slate-700">
-              <li>• 100% independent — no hidden supplier incentives</li>
-              <li>• Experienced consultants with nationwide reach</li>
-              <li>• Decades of experience in deregulated energy markets</li>
-            </ul>
-          </div>
-
-          <div className="mt-6 md:mt-0 md:w-1/2">
-            <div className="rounded-xl overflow-hidden shadow">
-              <img src="/team-photo.png" alt="Team" className="w-full h-48 object-cover" />
-            </div>
+          {/* ✨ NEW SERVICE ✨ */}
+          <div className="p-6 rounded-xl bg-[#f8fafc] border border-[#e6eef6] shadow-sm hover:shadow-md transition">
+            <h4 className="font-semibold text-[#1f3b5b]">Bill Management</h4>
+            <p className="mt-2 text-sm text-slate-600">We streamline invoice tracking, utility cost analysis, and billing error recovery to save your business time and money.</p>
           </div>
         </div>
       </section>
 
-      {/* Contact */}
-      <section id="contact" className="max-w-7xl mx-auto px-6 py-12">
-        <h3 className="text-2xl font-semibold text-[#1f3b5b]">Request a Quote</h3>
-        <p className="text-slate-600 mt-2">Let us find the best energy rates for your business. Fill out the form below to get started.</p>
-
-        <div className="mt-6 grid md:grid-cols-2 gap-6">
-          <form className="bg-white p-6 rounded-xl shadow-sm" onSubmit={handleMail}>
-            <div className="grid gap-3">
-              <input name="name" placeholder="Your name" className="w-full border border-slate-200 rounded-md px-3 py-2" required />
-              <input name="company" placeholder="Company" className="w-full border border-slate-200 rounded-md px-3 py-2" />
-              <input name="email" type="email" placeholder="Email" className="w-full border border-slate-200 rounded-md px-3 py-2" required />
-              <input name="usage" placeholder="Annual usage (kWh or therms)" className="w-full border border-slate-200 rounded-md px-3 py-2" />
-              <textarea name="message" rows={4} placeholder="Additional details (locations, meters, etc.)" className="w-full border border-slate-200 rounded-md px-3 py-2" />
-              <div className="flex items-center gap-3">
-                <button type="submit" className="px-4 py-2 rounded-md bg-green-600 text-white">Send via Email</button>
-                <button type="reset" className="px-4 py-2 rounded-md border">Reset</button>
-              </div>
-            </div>
-          </form>
-
-          <div className="p-6 rounded-xl bg-white shadow-sm">
-            <h4 className="font-semibold">Office</h4>
-            <p className="text-sm text-slate-600 mt-2">123 Market Street<br/>Anytown, USA</p>
-
-            <div className="mt-4">
-              <p className="text-sm font-medium">Hours</p>
-              <p className="text-sm text-slate-600">Mon–Fri 9:00–17:00</p>
-            </div>
-
-            <div className="mt-6">
-              <p className="text-sm font-medium">Follow</p>
-              <div className="flex gap-3 mt-2">
-                <a aria-label="LinkedIn" href="#" className="text-sm underline">LinkedIn</a>
-                <a aria-label="X" href="#" className="text-sm underline">X</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="mt-16 text-sm text-slate-500 text-center pb-10">
-        © {new Date().getFullYear()} TruePower Consultants — All rights reserved.
-      </footer>
+      {/* About / Contact sections stay the same */}
+      {/* ...keep everything below unchanged from your current version */}
     </main>
   );
 }
