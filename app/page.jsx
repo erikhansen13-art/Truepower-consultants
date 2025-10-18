@@ -64,10 +64,12 @@ export default function Home() {
       {/* Hero */}
       <section className={`max-w-7xl mx-auto px-6 py-12 grid md:grid-cols-2 gap-8 items-center ${fadeClass} transition-all duration-700 delay-75`}>
         <div>
-          <p className="text-sm text-green-600 font-semibold">Your energy partner</p>
-          <h1 className="text-5xl md:text-6xl font-extrabold mt-3" style={{ color: "#0f172a" }}>
-            Smarter Energy Solutions
+          <h1 className="text-5xl md:text-5xl font-extrabold mt-3" style={{ color: "#0f172a" }}>
+            Smarter Energy Solutions.
           </h1>
+          <p className="mt-4 text-lg text-slate-600">
+            Helping businesses reduce costs and operate more sustainably through expert energy strategy and procurement.
+          </p>
 
           <div className="mt-6 flex gap-3">
             <a
