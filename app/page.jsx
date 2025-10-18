@@ -6,28 +6,30 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-accent-100 text-slate-900 antialiased">
-     <div className="flex items-center space-x-3">
-  <div className="relative w-16 h-16 flex items-center justify-center rounded-full">
-    <img
-      src="/bolt-logo.jpeg"
-      alt="TruePower Bolt Logo"
-      className="logo-glow w-12 h-12 object-contain"
-    />
-</div>
+  <main className="min-h-screen bg-accent-100 text-slate-900 antialiased">
+  <div className="flex items-center space-x-3">
+    <div className="relative w-16 h-16 flex items-center justify-center rounded-full">
+      <img
+        src="/bolt-logo.jpeg"
+        alt="TruePower Bolt Logo"
+        className="logo-glow w-12 h-12 object-contain"
+      />
     </div>
+
     <div>
-      <h1 className="text-2xl font-bold text-[#1f3b5b]">TruePower</h1>
-      <p className="text-sm font-medium text-[#1f3b5b]/80 tracking-wide">
+      <h1 className="text-2xl font-bold text-[#1f35b5]">TruePower</h1>
+      <p className="text-sm font-medium text-[#1f35b5]80 tracking-wide">
         CONSULTANTS
       </p>
     </div>
   </div>
+</main>
+
 <header>
-  <nav className="space-x-6 text-[#1f35b5b] font-medium">
+  <nav className="space-x-6 text-[#1f35b5] font-medium">
     <a href="#services" className="hover:text-[#3b82f6] transition">Services</a>
     <a href="#about" className="hover:text-[#3b82f6] transition">About</a>
-    <a href="#contact" className="px-4 py-2 bg-[#1f35b5b] text-white rounded-md hover:bg-[#3b82f6] transition">Contact</a>
+    <a href="#contact" className="px-4 py-2 bg-[#1f35b5] text-white rounded-md hover:bg-[#3b82f6] transition">Contact</a>
   </nav>
 </header>
     
