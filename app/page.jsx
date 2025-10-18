@@ -1,280 +1,255 @@
 // app/page.jsx
 "use client";
-import React from "react";
+import Image from "next/image";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-white text-slate-900 antialiased">
-      {/* inline styled-jsx for the pulsing glow so Tailwind alone isn't required */}
-      <style jsx>{`
-        @keyframes glowPulse {
-          0% {
-            box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.15), 0 0 0 0 rgba(99, 102, 241, 0.08);
-          }
-          70% {
-            box-shadow: 0 0 40px 12px rgba(59, 130, 246, 0.08), 0 0 24px 6px rgba(99, 102, 241, 0.04);
-          }
-          100% {
-            box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.0);
-          }
-        }
-        .glow {
-          animation: glowPulse 2.6s infinite ease-in-out;
-        }
-      `}</style>
-
+    <main className="min-h-screen bg-white text-gray-800">
       {/* Header */}
-      <header className="max-w-7xl mx-auto px-6 py-8 flex items-center justify-between">
-        <div className="flex items-center gap-6">
-          {/* Glowing circular logo */}
-          <div
-            className="relative rounded-full bg-white p-5 w-20 h-20 flex items-center justify-center"
-            style={{
-              boxShadow: "0 12px 24px rgba(15, 23, 42, 0.03)",
-            }}
-          >
-            <div className="rounded-full bg-white w-full h-full flex items-center justify-center glow">
-              <img
-                src="/bolt-logo.jpeg"
-                alt="TruePower bolt logo"
-                className="w-12 h-12 object-contain"
-              />
-            </div>
+      <header className="flex items-center justify-between px-8 py-6 border-b border-gray-200">
+        <div className="flex items-center space-x-4">
+          {/* Glowing pulsing logo */}
+          <div className="relative flex items-center justify-center w-20 h-20 rounded-full bg-white shadow-lg">
+            <div className="absolute inset-0 rounded-full animate-pulse-glow"></div>
+            <Image
+              src="/lightning-logo.jpeg"
+              alt="TruePower logo"
+              width={60}
+              height={60}
+              className="z-10"
+            />
           </div>
-
-          {/* Brand */}
-          <div className="leading-tight">
-            <div className="flex flex-col">
-              <span className="text-3xl md:text-4xl font-extrabold text-[#0f2340]">
-                TruePower
-              </span>
-              <span className="text-sm md:text-base font-semibold text-slate-400 mt-1 tracking-wider text-center">
-                CONSULTANTS
-              </span>
-            </div>
+          <div>
+            <h1 className="text-5xl font-bold text-[#0b2343] leading-none">
+              TruePower
+            </h1>
+            <p className="text-center text-lg text-gray-400 tracking-widest">
+              CONSULTANTS
+            </p>
           </div>
         </div>
 
-        {/* Nav */}
-        <nav className="flex items-center gap-6">
-          <a href="#services" className="text-slate-700 hover:text-[#0f2340]">
+        <nav className="flex space-x-8 text-lg">
+          <a href="#services" className="hover:text-[#0b2343] transition">
             Services
           </a>
-          <a href="#about" className="text-slate-700 hover:text-[#0f2340]">
+          <a href="#about" className="hover:text-[#0b2343] transition">
             About
           </a>
           <a
             href="#contact"
-            className="px-4 py-2 bg-[#0f2340] text-white rounded-md shadow"
+            className="px-5 py-2 bg-[#0b2343] text-white rounded-lg hover:bg-gray-700 transition"
           >
             Contact
           </a>
         </nav>
       </header>
 
-      {/* Hero */}
-      <section className="max-w-7xl mx-auto px-6 py-12 grid md:grid-cols-2 gap-10 items-start">
-        <div>
-          <h1 className="text-5xl md:text-6xl font-extrabold text-[#0f2340] leading-tight">
+      {/* Hero Section */}
+      <section className="px-10 py-20 flex flex-col md:flex-row items-center justify-between">
+        <div className="max-w-xl">
+          <h2 className="text-4xl font-bold text-[#0b2343] leading-tight mb-3">
             Smarter Energy Solutions.
-          </h1>
-
-          <p className="mt-4 text-slate-600 max-w-xl">
+          </h2>
+          <p className="text-lg text-gray-600 mb-6">
             Working with businesses to manage and reduce energy costs.
           </p>
-
-          <div className="mt-8 flex gap-4 items-center">
-            <a
-              href="#contact"
-              className="inline-block px-6 py-3 bg-[#0f2340] text-white rounded-md"
-            >
+          <div className="flex space-x-4">
+            <button className="px-6 py-3 bg-[#0b2343] text-white rounded-lg hover:bg-gray-700 transition">
               Get a Quote
-            </a>
-            <a
-              href="#services"
-              className="inline-block px-6 py-3 border border-slate-200 rounded-md text-slate-700"
-            >
+            </button>
+            <button className="px-6 py-3 border border-gray-400 rounded-lg hover:bg-gray-100 transition">
               Learn More
-            </a>
+            </button>
           </div>
-
-          <div className="mt-6 text-sm text-slate-600">
-            <strong>Phone:</strong> 716-303-3014 &nbsp; • &nbsp;
+          <p className="mt-4 text-sm text-gray-600">
+            <strong>Phone:</strong> 716-303-3014 ·{" "}
             <strong>Email:</strong>{" "}
             <a
               href="mailto:contact@truepowerconsultants.com"
-              className="underline text-slate-600"
+              className="text-[#0b2343] hover:underline"
             >
               contact@truepowerconsultants.com
             </a>
-          </div>
+          </p>
         </div>
 
-        <div>
-          {/* Energy chart card */}
-          <div className="rounded-xl border bg-white shadow p-6 h-64 flex items-center justify-center">
-            <div className="w-full h-full flex items-center justify-center">
-              <img
-                src="/energy-chart.jpg"
-                alt="Energy chart"
-                className="w-full h-full object-cover rounded-md"
-              />
+        <div className="mt-10 md:mt-0 md:ml-16 w-full md:w-[480px] h-[250px] flex items-center justify-center border border-gray-200 rounded-lg">
+          <Image
+            src="/energy-chart.jpg"
+            alt="Energy chart"
+            width={480}
+            height={250}
+            className="rounded-lg"
+          />
+        </div>
+      </section>
+
+      {/* Services Section */}
+      <section id="services" className="px-10 py-20 bg-gray-50">
+        <h3 className="text-2xl font-semibold text-[#0b2343] mb-10">
+          Our Services
+        </h3>
+        <div className="grid md:grid-cols-3 gap-6">
+          {[
+            {
+              title: "Energy Procurement",
+              desc: "We negotiate competitive electricity and gas supply contracts tailored to your usage profile.",
+            },
+            {
+              title: "Market Intelligence",
+              desc: "Access insights on wholesale market trends, regulatory changes, and renewal timing.",
+            },
+            {
+              title: "Risk Management",
+              desc: "Mitigate price volatility with strategic purchasing aligned with your goals.",
+            },
+            {
+              title: "Community Solar",
+              desc: "Reduce utility costs and support local renewable energy projects.",
+            },
+            {
+              title: "Demand Response",
+              desc: "Earn incentives for reducing load during peak events — we manage enrollment and participation.",
+            },
+            {
+              title: "Bill Management",
+              desc: "Streamline invoice tracking, cost analysis, and billing error recovery.",
+            },
+          ].map((service, index) => (
+            <div
+              key={index}
+              className="p-6 bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition"
+            >
+              <h4 className="text-lg font-semibold text-[#0b2343] mb-2">
+                {service.title}
+              </h4>
+              <p className="text-gray-600 text-sm">{service.desc}</p>
             </div>
-          </div>
+          ))}
         </div>
       </section>
 
-      {/* Services */}
-      <section id="services" className="max-w-7xl mx-auto px-6 py-12">
-        <h2 className="text-2xl font-semibold text-[#0f2340]">Our Services</h2>
-
-        <div className="mt-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          <ServiceCard
-            title="Energy Procurement"
-            desc="We negotiate competitive electricity and gas supply contracts tailored to your usage profile."
-          />
-          <ServiceCard
-            title="Market Intelligence"
-            desc="Access insights on wholesale market trends, regulatory changes, and renewal timing."
-          />
-          <ServiceCard
-            title="Risk Management"
-            desc="Mitigate price volatility with strategic purchasing aligned with your goals."
-          />
-          <ServiceCard
-            title="Community Solar"
-            desc="Reduce utility costs and support local renewable energy projects."
-          />
-          <ServiceCard
-            title="Demand Response"
-            desc="Earn incentives for reducing load during peak events — we manage enrollment and participation."
-          />
-          <ServiceCard
-            title="Bill Management"
-            desc="Streamline invoice tracking, cost analysis, and billing error recovery."
-          />
-        </div>
-      </section>
-
-      {/* About + Team */}
-      <section id="about" className="max-w-7xl mx-auto px-6 py-12">
-        <div className="grid md:grid-cols-2 gap-8 items-start bg-gradient-to-r from-white to-slate-50 p-8 rounded-xl">
+      {/* About Section */}
+      <section id="about" className="px-10 py-20 bg-white">
+        <h3 className="text-2xl font-semibold text-[#0b2343] mb-6">
+          About TruePower
+        </h3>
+        <div className="grid md:grid-cols-2 gap-10 items-center">
           <div>
-            <h3 className="text-xl font-semibold text-[#0f2340]">About TruePower</h3>
-            <p className="mt-4 text-slate-600">
-              TruePower Consultants is an independent energy advisory firm specializing in commercial and industrial energy solutions. We bring transparency, competitive pricing, and expert negotiation to every client we serve.
+            <p className="text-gray-700 mb-4">
+              TruePower Consultants is an independent energy advisory firm
+              specializing in commercial and industrial energy solutions. We
+              bring transparency, competitive pricing, and expert negotiation to
+              every client we serve.
             </p>
-
-            <ul className="mt-6 space-y-3 text-slate-600 list-disc list-inside">
+            <ul className="list-disc list-inside text-gray-600">
               <li>100% independent — no hidden supplier incentives</li>
               <li>Experienced consultants with nationwide reach</li>
-              <li>Decades of experience in deregulated energy markets</li>
+              <li>Decades of expertise in deregulated energy markets</li>
             </ul>
           </div>
-
-          {/* Team image on the right only */}
-          <div className="rounded-lg border bg-white shadow p-6 h-64 flex items-center justify-center">
-            <img
-              src="/team.jpg"
-              alt="Team meeting"
-              className="w-full h-full object-cover rounded-md"
+          <div className="border border-gray-200 rounded-lg flex items-center justify-center h-[250px] bg-gray-50">
+            <Image
+              src="/team-photo.jpg"
+              alt="TruePower Team"
+              width={400}
+              height={250}
+              className="rounded-lg"
             />
           </div>
         </div>
       </section>
 
-      {/* Request a Quote / Contact */}
-      <section id="contact" className="max-w-7xl mx-auto px-6 py-12">
-        <h3 className="text-2xl font-semibold text-[#0f2340]">Request a Quote</h3>
-        <p className="mt-2 text-slate-600">
-          Let us find the best energy rates for your business. Fill out the form below to get started.
+      {/* Contact / Quote Section */}
+      <section id="contact" className="px-10 py-20 bg-gray-50">
+        <h3 className="text-2xl font-semibold text-[#0b2343] mb-6">
+          Request a Quote
+        </h3>
+        <p className="text-gray-600 mb-8">
+          Let us find the best energy rates for your business. Fill out the form
+          below to get started.
         </p>
-
-        <div className="mt-6 grid md:grid-cols-2 gap-8">
-          <form className="bg-white rounded-xl border p-6 shadow">
-            <div className="grid gap-4">
-              <input
-                name="name"
-                placeholder="Your name"
-                className="w-full border border-slate-200 rounded-md px-4 py-3"
-              />
-              <input
-                name="company"
-                placeholder="Company"
-                className="w-full border border-slate-200 rounded-md px-4 py-3"
-              />
-              <input
-                name="email"
-                placeholder="Email"
-                className="w-full border border-slate-200 rounded-md px-4 py-3"
-              />
-              <input
-                name="usage"
-                placeholder="Annual usage (kWh or therms)"
-                className="w-full border border-slate-200 rounded-md px-4 py-3"
-              />
-              <textarea
-                name="message"
-                rows="4"
-                placeholder="Additional details (locations, meters, etc.)"
-                className="w-full border border-slate-200 rounded-md px-4 py-3"
-              />
-            </div>
-
-            <div className="mt-4 flex gap-4">
-              <button type="submit" className="px-6 py-2 bg-green-600 text-white rounded-md">
+        <div className="grid md:grid-cols-2 gap-10">
+          <form className="space-y-4">
+            <input
+              type="text"
+              placeholder="Your name"
+              className="w-full border border-gray-300 rounded-lg p-3"
+            />
+            <input
+              type="text"
+              placeholder="Company"
+              className="w-full border border-gray-300 rounded-lg p-3"
+            />
+            <input
+              type="email"
+              placeholder="Email"
+              className="w-full border border-gray-300 rounded-lg p-3"
+            />
+            <input
+              type="text"
+              placeholder="Annual usage (kWh or therms)"
+              className="w-full border border-gray-300 rounded-lg p-3"
+            />
+            <textarea
+              placeholder="Additional details (locations, meters, etc.)"
+              rows="3"
+              className="w-full border border-gray-300 rounded-lg p-3"
+            ></textarea>
+            <div className="flex space-x-4">
+              <button
+                type="submit"
+                className="px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition"
+              >
                 Send via Email
               </button>
-              <button type="reset" className="px-6 py-2 border rounded-md">
+              <button
+                type="reset"
+                className="px-6 py-3 border border-gray-400 rounded-lg hover:bg-gray-100 transition"
+              >
                 Reset
               </button>
             </div>
           </form>
 
-          <aside className="bg-white rounded-xl border p-6 shadow">
-            <h4 className="font-semibold text-slate-800">Office</h4>
-            <p className="text-slate-600 mt-2">
+          <div>
+            <h4 className="font-semibold text-[#0b2343] mb-2">Office</h4>
+            <p className="text-gray-600 mb-4">
               1 Seneca Street, Floor 29
               <br />
               Buffalo, NY 14203
             </p>
-
-            <div className="mt-4">
-              <h5 className="font-medium text-slate-800">Hours</h5>
-              <p className="text-slate-600 mt-1">Mon–Fri 9:00–17:00</p>
-            </div>
-
-            <div className="mt-6">
-              <h5 className="font-medium text-slate-800">Follow</h5>
-              <div className="mt-2 flex gap-4">
-                <a href="#" className="text-sm underline text-slate-600">
-                  LinkedIn
-                </a>
-                <a href="#" className="text-sm underline text-slate-600">
-                  X
-                </a>
-              </div>
-            </div>
-          </aside>
+            <h4 className="font-semibold text-[#0b2343] mb-2">Hours</h4>
+            <p className="text-gray-600 mb-4">Mon–Fri 9:00–17:00</p>
+            <h4 className="font-semibold text-[#0b2343] mb-2">Follow</h4>
+            <a
+              href="#"
+              className="text-[#0b2343] hover:underline text-sm font-medium"
+            >
+              LinkedIn ✕
+            </a>
+          </div>
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="mt-12 border-t pt-8 pb-12">
-        <div className="max-w-7xl mx-auto px-6 text-sm text-slate-500">
-          © {new Date().getFullYear()} TruePower Consultants — All rights reserved.
-        </div>
-      </footer>
+      {/* Glow Animation */}
+      <style jsx>{`
+        @keyframes pulseGlow {
+          0% {
+            box-shadow: 0 0 10px 2px rgba(10, 50, 100, 0.4);
+          }
+          50% {
+            box-shadow: 0 0 25px 8px rgba(10, 50, 100, 0.6);
+          }
+          100% {
+            box-shadow: 0 0 10px 2px rgba(10, 50, 100, 0.4);
+          }
+        }
+        .animate-pulse-glow {
+          animation: pulseGlow 2.5s infinite;
+        }
+      `}</style>
     </main>
-  );
-}
-
-/* small service card component */
-function ServiceCard({ title, desc }) {
-  return (
-    <div className="rounded-xl bg-white border p-6 shadow-sm hover:shadow-md transition">
-      <h4 className="text-lg font-semibold text-[#0f2340]">{title}</h4>
-      <p className="mt-2 text-slate-600">{desc}</p>
-    </div>
   );
 }
