@@ -1,80 +1,87 @@
 "use client";
+import Image from "next/image";
+import { motion } from "framer-motion";
 
 export default function Home() {
   return (
-    <main className="min-h-screen flex flex-col items-center justify-center bg-gray-50 text-gray-900">
+    <main className="min-h-screen bg-gray-50 text-gray-900 flex flex-col items-center">
+      {/* Header Section */}
+      <header className="w-full flex flex-col items-center justify-center py-16 bg-gradient-to-b from-white to-gray-100 text-center">
+        <motion.div
+          className="relative flex items-center justify-center mb-4"
+          animate={{ scale: [1, 1.1, 1] }}
+          transition={{ repeat: Infinity, duration: 2 }}
+        >
+          {/* Glowing circle around logo */}
+          <div className="absolute w-36 h-36 rounded-full bg-blue-500 opacity-30 blur-xl animate-pulse"></div>
+          <Image
+            src="/bolt-logo.jpeg"
+            alt="TruePower Logo"
+            width={120}
+            height={120}
+            className="relative z-10"
+          />
+        </motion.div>
 
-      {/* HERO SECTION */}
-      <section className="relative flex flex-col items-center justify-center text-center py-24 bg-white text-gray-900">
-        {/* Glowing logo + name */}
-        <div className="flex items-center mb-10">
-          <div className="w-28 h-28 rounded-full flex items-center justify-center bg-white shadow-lg border-4 border-blue-800">
-            <img
-              src="/lightning-logo.jpeg"
-              alt="TruePower Logo"
-              className="w-16 h-16 drop-shadow-[0_0_15px_rgba(30,64,175,0.8)] animate-pulse"
-            />
-          </div>
-          <div className="ml-5 text-left">
-            <h1 className="text-4xl font-extrabold text-blue-900 leading-tight">
-              TruePower
-            </h1>
-            <h2 className="text-2xl font-semibold text-gray-700 -mt-1">
-              Consultants
-            </h2>
-          </div>
-        </div>
-
-        {/* Main tagline */}
-        <h3 className="text-5xl md:text-6xl font-bold text-blue-900 mb-3 leading-snug">
+        <h1 className="text-4xl md:text-5xl font-bold text-blue-900 mt-4">
+          TruePower Consultants
+        </h1>
+        <h2 className="text-3xl md:text-4xl text-blue-800 font-semibold mt-2">
           Smarter Energy Solutions.
-        </h3>
-        <p className="text-lg md:text-xl text-gray-700 max-w-2xl">
-          Reducing costs, increasing efficiency, and empowering sustainable choices.
-        </p>
-      </section>
+        </h2>
+      </header>
 
-      {/* SERVICES SECTION */}
-      <section className="py-20 px-6 bg-gray-100 text-center w-full">
-        <h3 className="text-3xl font-bold text-blue-900 mb-12">Our Services</h3>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+      {/* Services Section */}
+      <section className="w-full max-w-6xl px-6 py-16 text-center">
+        <h3 className="text-3xl font-bold text-blue-900 mb-10">Our Services</h3>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {[
-            { title: "Energy Procurement", desc: "Customized plans to reduce your energy costs." },
-            { title: "Energy Auditing", desc: "Identify inefficiencies and optimize consumption." },
-            { title: "Solar Solutions", desc: "Smart renewable options for long-term savings." },
-            { title: "Demand Response", desc: "Maximize savings during peak usage times." },
-            { title: "Sustainability Consulting", desc: "Achieve green certifications and ESG goals." },
-            { title: "Bill Management", desc: "Streamlined management to track and control energy expenses." },
+            "Energy Audits",
+            "Solar Solutions",
+            "Battery Storage",
+            "Efficiency Upgrades",
+            "Consulting & Strategy",
+            "Bill Management",
           ].map((service, index) => (
             <div
               key={index}
-              className="p-8 bg-white rounded-lg shadow-md border border-gray-200 hover:shadow-xl transition-shadow"
+              className="border-2 border-blue-600 bg-white shadow-md rounded-xl p-8 hover:shadow-lg hover:border-blue-800 transition-all duration-300"
             >
-              <h4 className="text-2xl font-semibold text-blue-900 mb-3">{service.title}</h4>
-              <p className="text-gray-700">{service.desc}</p>
+              <h4 className="text-xl font-semibold text-blue-900">{service}</h4>
             </div>
           ))}
         </div>
       </section>
 
-      {/* TEAM SECTION */}
-      <section className="py-20 px-6 bg-white text-center w-full">
-        <h3 className="text-3xl font-bold text-blue-900 mb-10">Our Team</h3>
-        <img
-          src="https://images.unsplash.com/photo-1590608897129-79da98d1596d?auto=format&fit=crop&w=1600&q=80"
-          alt="Team Meeting"
-          className="w-full max-w-5xl mx-auto rounded-lg shadow-lg"
+      {/* Energy Chart Image Section */}
+      <section className="w-full bg-white py-16 flex justify-center">
+        <Image
+          src="https://cdn.pixabay.com/photo/2017/01/10/19/05/energy-1976552_1280.jpg"
+          alt="Energy Chart"
+          width={800}
+          height={400}
+          className="rounded-xl shadow-lg object-cover"
         />
       </section>
 
-      {/* CONTACT SECTION */}
-      <footer className="py-10 bg-blue-900 text-white text-center w-full">
-        <h3 className="text-2xl font-semibold mb-4">Contact Us</h3>
-        <p>1 Seneca Street, Floor 29<br />Buffalo, NY 14203</p>
-        <p className="mt-2">info@truepowerconsultants.com | (555) 123-4567</p>
-        <p className="text-sm text-gray-300 mt-6">
-          © {new Date().getFullYear()} TruePower Consultants. All rights reserved.
+      {/* Our Team Section */}
+      <section className="w-full bg-gray-100 py-16 flex flex-col items-center text-center">
+        <h3 className="text-3xl font-bold text-blue-900 mb-10">Our Team</h3>
+        <Image
+          src="https://cdn.pixabay.com/photo/2016/11/19/14/00/team-1837306_1280.jpg"
+          alt="Our Team"
+          width={800}
+          height={400}
+          className="rounded-xl shadow-lg mb-8 object-cover"
+        />
+        <p className="text-lg text-gray-700">
+          1 Seneca Street, Floor 29 <br /> Buffalo, NY 14203
         </p>
+      </section>
+
+      {/* Footer */}
+      <footer className="w-full py-6 bg-blue-900 text-white text-center mt-10">
+        <p>© {new Date().getFullYear()} TruePower Consultants. All rights reserved.</p>
       </footer>
     </main>
   );
